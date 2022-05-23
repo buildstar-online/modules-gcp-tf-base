@@ -12,7 +12,6 @@ module "gcp-tf-base" {
 
   source = "./gcp-tf-base"
 
-
   # Account options
   organization     = "example.com"
   organization_id  = "1234567890"
@@ -51,7 +50,7 @@ module "gcp-tf-base" {
 # Creates a new project + basics in gcp
 module "gcp-tf-base" {
 
-  source  = "git::https://github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.1"
+  source  = "git::https://github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.2"
 
 }
 
