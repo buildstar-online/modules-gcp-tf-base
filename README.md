@@ -1,6 +1,6 @@
 # modules-gcp-tf-base
 
-A modularized version of https://github.com/cloudymax/gcp-tf-basee for those who prefer that workflow
+A modularized version of https://github.com/cloudymax/gcp-tf-base for those who prefer that workflow
 
 ## Local Source
 
