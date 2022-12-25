@@ -33,7 +33,7 @@ data "google_iam_policy" "keyEditor" {
 
 # Create a service account key
 resource "google_service_account_key" "mykey" {
-  service_account_id = google_service_account.service_account.name
+  service_account_id = data.google_service_account.current.name
   public_key_type    = "TYPE_X509_PEM_FILE"
 }
 
