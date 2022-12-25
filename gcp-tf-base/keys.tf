@@ -16,8 +16,9 @@ resource "google_kms_crypto_key" "key" {
   }
 }
 
-data "data "google_cloud_identity_group_memberships" "members" {
-  group = "groups/admin-bot-group@deserialize.me"
+data "google_cloud_identity_group" "cloud_identity_group_basic" {
+  display_name         = var.big_robot_group
+  parent = "identitysources/${var.organization}"
 }
 
 # Give our service accout we created in iam.tf access to the keyring
