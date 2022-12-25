@@ -6,7 +6,6 @@ module "gcp-tf-base" {
   
   organization     = var.organization
   organization_id  = var.organization_id
-  credentials_path = var.credentials_path
   billing_account  = var.billing_account
 
   main_availability_zone = var.main_availability_zone
