@@ -48,11 +48,6 @@ variable "keyring_key" {
   type        = string
 }
 
-variable "credentials_path" {
-  description = "path to you .json creds for your service account"
-  type        = string
-}
-
 variable "billing_account" {
   description = "the billing account you want all this to go under"
   type        = string
