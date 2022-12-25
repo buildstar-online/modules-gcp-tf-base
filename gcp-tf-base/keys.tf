@@ -26,7 +26,7 @@ data "google_iam_policy" "keyEditor" {
     role = "roles/editor"
 
     members = [
-      "group:${data.google_cloud_identity_groups.cloud_identity_group_basic.id}",
+      "group:${var.big_robot_group}",
     ]
   }
 }
