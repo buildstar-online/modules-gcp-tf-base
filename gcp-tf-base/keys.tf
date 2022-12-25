@@ -16,6 +16,10 @@ resource "google_kms_crypto_key" "key" {
   }
 }
 
+data "data "google_cloud_identity_group_memberships" "members" {
+  group = "groups/admin-bot-group@deserialize.me"
+}
+
 # Give our service accout we created in iam.tf access to the keyring
 data "google_iam_policy" "keyEditor" {
   binding {
