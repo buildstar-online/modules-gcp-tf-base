@@ -2,7 +2,7 @@
 
 module "gcp-tf-base" {
 
-  source = "git::https://github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.1"
+  source = "./gcp-tf-base"
   
   organization     = var.organization
   organization_id  = var.organization_id
