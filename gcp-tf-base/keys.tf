@@ -17,10 +17,8 @@ resource "google_kms_crypto_key" "key" {
 }
 
 data "google_cloud_identity_groups" "cloud_identity_group_basic" {
-  display_name         = var.big_robot_group
   parent = "identitysources/${var.organization}"
 }
-
 
 # Give our service accout we created in iam.tf access to the keyring
 data "google_iam_policy" "keyEditor" {
