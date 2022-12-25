@@ -4,25 +4,25 @@ module "gcp-tf-base" {
 
   source = "git::https://github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.1"
   
-  organization     = ""
-  organization_id  = ""
-  credentials_path = ""
-  billing_account  = ""
+  organization     = var.organization
+  organization_id  = var.organization_id
+  credentials_path = var.credentials_path
+  billing_account  = var.billing_account
 
-  main_availability_zone = ""
-  location               = ""
+  main_availability_zone = var.main_availability_zone
+  location               = var.location
 
-  project_name = ""
-  project_id   = ""
+  project_name = var.project_name
+  project_id   = var.project_id
 
-  keyring     = ""
-  keyring_key = ""
+  keyring     = var.keyring
+  keyring_key = var.keyring_key
 
-  big_robot_group = ""
-  big_robot_name  = ""
+  big_robot_group = var.big_robot_group
+  big_robot_name  = var.big_robot_name
 
   # State bucket
-  backend_bucket_name = ""
-  bucket_path_prefix  = ""
+  backend_bucket_name = var.backend_bucket_name
+  bucket_path_prefix  = var.bucket_path_prefix
 
 }
