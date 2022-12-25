@@ -1,6 +1,7 @@
 
 project_name = "$PROJECT_NAME"
 project_id = "$PROJECT_ID"
+big_robot_name = "$BIG_ROBOT_NAME"
 big_robot_email = "$BIG_ROBOT_EMAIL"
 big_robot_group = "admin-bot-group@$ORGANIZATION"
 organization = "$ORGANIZATION"
