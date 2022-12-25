@@ -5,7 +5,7 @@ resource "google_compute_shared_vpc_host_project" "host" {
 
 resource "google_compute_network" "network" {
   name                    = "${var.project_id}-network"
-  project                 = var.project_name 
+  project                 = var.project_id 
   auto_create_subnetworks = false
 }
 
