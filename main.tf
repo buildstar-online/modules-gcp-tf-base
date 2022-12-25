@@ -19,6 +19,7 @@ module "gcp-tf-base" {
 
   big_robot_group = var.big_robot_group
   big_robot_name  = var.big_robot_name
+  big_robot_email = var.big_robot_email
 
   # State bucket
   backend_bucket_name = var.backend_bucket_name
