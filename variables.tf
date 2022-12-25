@@ -18,6 +18,11 @@ variable "big_robot_group" {
   type        = string
 }
 
+variable "big_robot_email" {
+  description = "email of the top-level service account"
+  type        = string
+}
+
 variable "organization" {
   description = "your GCP organization name"
   type        = string
