@@ -3,10 +3,10 @@
 module "gcp-tf-base" {
 
   source = "./gcp-tf-base"
-  
-  organization     = var.organization
-  organization_id  = var.organization_id
-  billing_account  = var.billing_account
+
+  organization    = var.organization
+  organization_id = var.organization_id
+  billing_account = var.billing_account
 
   main_availability_zone = var.main_availability_zone
   location               = var.location
