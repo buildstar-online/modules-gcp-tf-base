@@ -1,8 +1,7 @@
 # Create a keyring
-resource "google_kms_key_ring" "keyring" {
+data "google_kms_key_ring" "keyring" {
   name     = var.keyring
   location = var.location
-  project  = var.project_id
 }
 
 # add a key to the keyring
