@@ -11,34 +11,30 @@ A modularized version of https://github.com/cloudymax/gcp-tf-base for those who 
 module "gcp-tf-base" {
 
   source = "./gcp-tf-base"
+  
+  organization     = var.organization
+  organization_id  = var.organization_id
+  billing_account  = var.billing_account
 
-  # Account options
-  organization     = "example.com"
-  organization_id  = "1234567890"
-  credentials_path = "/Users/<user>/.config/gcloud/application_default_credentials.json"
-  billing_account  = "some account"
+  main_availability_zone = var.main_availability_zone
+  location               = var.location
 
-  # Geographic Options
-  main_availability_zone = "some-zone1-d"
-  location               = "some-zone1"
+  project_name = var.project_name
+  project_id   = var.project_id
 
-  # Project 
-  project_name = "GKE Example"
-  project_id   = "gke-example"
+  keyring     = var.keyring
+  keyring_key = var.keyring_key
 
-  # Keyring
-  keyring     = "example"
-  keyring_key = "example-key"
-
-  # IAM
-  big_robot_group = "top-level-admins"
-  big_robot_name  = "examplename"
+  big_robot_group = var.big_robot_group
+  big_robot_name  = var.big_robot_name
+  big_robot_email = var.big_robot_email
 
   # State bucket
-  backend_bucket_name = "backend-state-storage"
-  bucket_path_prefix  = "terraform/state"
+  backend_bucket_name = var.backend_bucket_name
+  bucket_path_prefix  = var.bucket_path_prefix
 
 }
+
 
 ```
 
