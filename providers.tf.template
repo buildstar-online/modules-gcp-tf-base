@@ -10,5 +10,5 @@ terraform {
 provider "google" {
   project     = "$PROJECT_ID"
   region      = "$LOCATION"  
-  credentials = "$KEYRING_KEY"
+  credentials = "/terraform/$KEYRING_KEY"
 }
