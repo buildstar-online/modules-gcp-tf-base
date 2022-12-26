@@ -9,10 +9,6 @@ resource "google_kms_crypto_key" "key" {
   name            = "admin-key"
   key_ring        = data.google_kms_key_ring.keyring.id
   rotation_period = "100000s"
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 data "google_cloud_identity_groups" "cloud_identity_group_basic" {
