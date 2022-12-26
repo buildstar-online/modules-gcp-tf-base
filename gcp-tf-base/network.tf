@@ -21,5 +21,5 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
   subnetwork   = google_compute_subnetwork.default.id
   address_type = "INTERNAL"
   address      = "10.0.42.42"
-  region       = var.region
+  region       = var.location
 }
