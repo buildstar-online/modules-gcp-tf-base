@@ -1,16 +1,15 @@
-# Getting started with GCP
+# New GCP project template
 
-In this tutorial we will create:
+Creates the basic resources needed for a new GCP terraform project. Clone this repo and follow allong.
+
+Creates:
 
 - A GCP Project
-- Security Group
+- Identity Group
 - State Bucket
 - Service Account
 - IAM permissions
 - KMS Key
-
-These items are required to be in-place prior to beginning to work with terraform.
-
 
 ## Setting-up via the gCloud CLI
 
@@ -22,7 +21,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 1. Log in
   
    ```bash
-   gcloud auth login
+   gcloud auth login --no-launch-browser
    ``` 
 
 2. Find your billing account ID:
@@ -32,7 +31,9 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    
    or
    
-   gcloud alpha billing accounts list --filter='NAME:<your user name>' --format='value(ACCOUNT_ID)'
+   gcloud alpha billing accounts list \
+      --filter='NAME:<your user name>' \
+      --format='value(ACCOUNT_ID)'
    ```
 
 3. Find your Organization ID
@@ -42,7 +43,9 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    
    or
    
-   gcloud organizations list --filter='DISPLAY_NAME:<some org name>' --format='value(ID)'
+   gcloud organizations list \
+      --filter='DISPLAY_NAME:<some org name>' \
+      --format='value(ID)'
    ```
 
 4. Populate required variables with unique values for your own project.
@@ -162,11 +165,9 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
     gsutil versioning set on gs://$BACKEND_BUCKET_NAME
     ```
 
-14. Clone the module repo [HERE](https://github.com/cloudymax/modules-gcp-tf-base) and populate the templates. envsubst requires the apt packages `gettext`.
+14. Populate the templates. envsubst requires the apt packages `gettext`.
 
     ```bash
-    git clone https://github.com/cloudymax/modules-gcp-tf-base
-    cd modules-gcp-tf-base
     envsubst < "backend.tf.template" > "backend.tf"
     envsubst < "terraform.tfvars.template" > "terraform.tfvars"
     envsubst < "providers.tf.template" > "providers.tf"
