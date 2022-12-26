@@ -7,7 +7,7 @@ data "google_kms_key_ring" "keyring" {
 # add a key to the keyring
 resource "google_kms_crypto_key" "key" {
   name            = var.keyring_key
-  key_ring        = google_kms_key_ring.keyring.id
+  key_ring        = data.google_kms_key_ring.keyring.id
   rotation_period = "100000s"
 
   lifecycle {
@@ -38,6 +38,6 @@ resource "google_service_account_key" "mykey" {
 
 # add policy for keyring from we crated in iam.tf 
 resource "google_kms_key_ring_iam_policy" "key_ring_policy" {
-  key_ring_id = google_kms_key_ring.keyring.id
+  key_ring_id = data.google_kms_key_ring.keyring.id
   policy_data = data.google_iam_policy.keyEditor.policy_data
 }
