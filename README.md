@@ -53,12 +53,11 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    export BIG_ROBOT_NAME="myserviceaccount"
    export BIG_ROBOT_EMAIL=$(echo $BIG_ROBOT_NAME@$PROJECT_ID.iam.gserviceaccount.com)
    export ORGANIZATION=
-   export ORGANIZATION_ID=""
-   export ORGANIZATION_NUMBER=$(gcloud organizations list |grep $ORGANIZATION |awk '{print $2}')
+   export ORGANIZATION_ID=$(gcloud organizations list |grep $ORGANIZATION |awk '{print $2}')
    export LOCATION="europe-west4"
    export MAIN_AVAILABILITY_ZONE="europe-west4-a"
    export KEYRING="mykeyring"
-   export KEYRING_KEY="terraform-key"
+   export KEYRING_KEY="terraform-key.json"
    export BILLING_ACCOUNT=""
    export GCLOUD_CLI_IMAGE_URL="gcr.io/google.com/cloudsdktool/google-cloud-cli"
    export GCLOUD_CLI_IMAGE_TAG="slim"
@@ -106,7 +105,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
       --member=group:"admin-bot-group@$ORGANIZATION" \
       --role=roles/owner
       
-    gcloud organizations add-iam-policy-binding "$ORGANIZATION_NUMBER" \
+    gcloud organizations add-iam-policy-binding "$ORGANIZATION_ID" \
       --member="group:admin-bot-group@$ORGANIZATION" \
       --role='roles/compute.xpnAdmin'
     ```
@@ -148,7 +147,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
         --iam-account=$BIG_ROBOT_EMAIL
 
     gcloud auth activate-service-account "$BIG_ROBOT_EMAIL" \
-        --key-file=$(pwd)/$INSECURE_FILE  \
+        --key-file=$(pwd)/$KEYRING_KEY  \
         --project=$PROJECT_ID
     ```
 
@@ -207,4 +206,14 @@ If you need a more in-depth guides on GKE, I would recommend reading:
 - [GKE private cluster with a bastion host](https://medium.com/google-cloud/gke-private-cluster-with-a-bastion-host-5480b44793a7) by Peter Hrvola
 - [How to use a Private Cluster in Kubernetes Engine](https://github.com/GoogleCloudPlatform/gke-private-cluster-demo) by the GCP team
 - [Google Cloud Workload Identity with Kubernetes and Terraform](https://www.cobalt.io/blog/google-cloud-workload-identity-with-kubernetes-and-terraform) by Nikola Velkovski
+
+
+
+
+
+```bash
+docker run -it -v $(pwd):/terraform \
+-w /terraform \
+hashicorp/terraform:latest init
+```
 
