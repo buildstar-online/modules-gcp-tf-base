@@ -6,7 +6,7 @@ data "google_kms_key_ring" "keyring" {
 
 # add a key to the keyring
 resource "google_kms_crypto_key" "key" {
-  name            = var.keyring_key
+  name            = "admin-key"
   key_ring        = data.google_kms_key_ring.keyring.id
   rotation_period = "100000s"
 
