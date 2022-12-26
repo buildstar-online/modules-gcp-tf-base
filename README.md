@@ -55,12 +55,12 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    export ORGANIZATION_ID=$(gcloud organizations list |grep $ORGANIZATION |awk '{print $2}')
    export BIG_ROBOT_NAME="myserviceaccount"
    export BIG_ROBOT_EMAIL=$(echo $BIG_ROBOT_NAME@$PROJECT_ID.iam.gserviceaccount.com)
-   export BIG_ROBOT_GROUP = "admin-bot-group@$ORGANIZATION_DOMAIN"
+   export BIG_ROBOT_GROUP="admin-bot-group@$ORGANIZATION_DOMAIN"
    export LOCATION="europe-west4"
    export MAIN_AVAILABILITY_ZONE="europe-west4-a"
    export KEYRING="mykeyring"
    export KEYRING_KEY="terraform-key.json"
-   export BILLING_ACCOUNT=""
+   export BILLING_ACCOUNT=$(gcloud beta billing accounts list |grep $ORGANIZATION |awk '{print $1}')
    export GCLOUD_CLI_IMAGE_URL="gcr.io/google.com/cloudsdktool/google-cloud-cli"
    export GCLOUD_CLI_IMAGE_TAG="slim"
    export BACKEND_BUCKET_NAME="$PROJECT_ID-backend-state-storage"
@@ -76,6 +76,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    gcloud services enable cloudkms.googleapis.com
    gcloud services enable iamcredentials.googleapis.com
    gcloud services enable iam.googleapis.com
+   gcloud services enable cloudbilling.googleapis.com
    ```
    
 6. Create a new Project and set it as active, then enable billing
