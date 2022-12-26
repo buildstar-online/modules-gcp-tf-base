@@ -5,8 +5,13 @@ data "google_kms_key_ring" "keyring" {
 }
 
 # add a key to the keyring
+resource "random_string" "random-key-name" {
+  length           = 16
+  special          = false
+}
+
 resource "google_kms_crypto_key" "key" {
-  name            = "admin-key"
+  name            = random_string.random-key-name.result
   key_ring        = data.google_kms_key_ring.keyring.id
   rotation_period = "100000s"
 }
