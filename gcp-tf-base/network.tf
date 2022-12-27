@@ -5,7 +5,7 @@ resource "google_compute_shared_vpc_host_project" "host" {
 
 resource "google_compute_network" "network" {
   name                    = "${var.project_id}-network"
-  project                 = var.project_id 
+  project                 = var.project_id
   auto_create_subnetworks = false
 }
 
@@ -22,4 +22,12 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
   address_type = "INTERNAL"
   address      = "10.0.42.42"
   region       = var.location
+}
+
+output "subnet_name" {
+  value = google_compute_subnetwork.default.name
+}
+
+output "network_name" {
+  value = google_compute_network.network.name
 }
