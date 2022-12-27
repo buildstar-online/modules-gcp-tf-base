@@ -45,7 +45,8 @@ module "modules-gcp-gke" {
 
   container_name          = var.container_name
   container_image         = var.container_image
-
+  region                  = var.location
+  main_availability_zone = var.main_availability_zone
   state_path              = var.backend_bucket_name
   state_bucket_name       = var.bucket_path_prefix
   project_id              = var.project_id

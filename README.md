@@ -19,30 +19,30 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 
 
 1. Log in
-  
+
    ```bash
    gcloud auth login --no-launch-browser
-   ``` 
+   ```
 
 2. Find your billing account ID:
 
    ```bash
    gcloud alpha billing accounts list
-   
+
    or
-   
+
    gcloud alpha billing accounts list \
       --filter='NAME:<your user name>' \
       --format='value(ACCOUNT_ID)'
    ```
 
 3. Find your Organization ID
-  
+
    ```bash
    gcloud organizations list
-   
+
    or
-   
+
    gcloud organizations list \
       --filter='DISPLAY_NAME:<some org name>' \
       --format='value(ID)'
@@ -74,21 +74,23 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 
    ```bash
    gcloud services enable compute.googleapis.com
-   gcloud services enable cloudresourcemanager.googleapis.com 
-   gcloud services enable cloudidentity.googleapis.com 
+   gcloud services enable cloudresourcemanager.googleapis.com
+   gcloud services enable cloudidentity.googleapis.com
    gcloud services enable cloudkms.googleapis.com
    gcloud services enable iamcredentials.googleapis.com
    gcloud services enable iam.googleapis.com
    gcloud services enable cloudbilling.googleapis.com
+   gcloud services enable container.googleapis.com
+│  sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
    ```
-   
+
 6. Create a new Project and set it as active, then enable billing
 
     ```bash
     gcloud projects create $PROJECT_ID --name="$PROJECT_NAME"
     gcloud config set project $PROJECT_ID
     gcloud alpha billing projects link $PROJECT_ID --billing-account $BILLING_ACCOUNT
-    
+
     ```
 
 7. Create a group:
@@ -96,7 +98,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
     ```bash
     gcloud identity groups create "admin-bot-group@$ORGANIZATION" --organization=$ORGANIZATION_ID --display-name="top-level-bot-group"
     ```
-   
+
 
 8. Give the group some permissions:
 
@@ -110,18 +112,18 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
     gcloud projects add-iam-policy-binding $PROJECT_ID \
       --member=group:"admin-bot-group@$ORGANIZATION" \
       --role=roles/owner
-      
+
     gcloud organizations add-iam-policy-binding "$ORGANIZATION_ID" \
       --member="group:admin-bot-group@$ORGANIZATION" \
       --role='roles/compute.xpnAdmin'
     ```
-    
+
 9. Create a Service Account and add the computer.serviceAgent role
 
    ```bash
    gcloud iam service-accounts create $BIG_ROBOT_NAME \
       --display-name="Authorative Service Account"
-   
+
    gcloud projects add-iam-policy-binding $PROJECT_ID \
       --member=serviceAccount:"$BIG_ROBOT_EMAIL" \
       --role=roles/compute.serviceAgent \
@@ -179,14 +181,14 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
     docker run -it -v $(pwd):/terraform \
     -w /terraform \
     hashicorp/terraform:latest init
-   
+
     docker run -it -v $(pwd):/terraform \
     -w /terraform \
     hashicorp/terraform:latest apply
     ```
 
 
-## Remote Source  
+## Remote Source
 
 ```hcl
 
@@ -198,4 +200,3 @@ module "gcp-tf-base" {
 }
 
 ```
-
