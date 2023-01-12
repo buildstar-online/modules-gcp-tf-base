@@ -62,7 +62,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    export LOCATION="europe-west4"
    export MAIN_AVAILABILITY_ZONE="europe-west4-a"
    export KEYRING="mykeyring"
-   export KEYRING_KEY="terraform-key.json"
+   export KEYRING_KEY="terraform-key"
    export BILLING_ACCOUNT=$(gcloud beta billing accounts list |grep $ORGANIZATION |awk '{print $1}')
    export GCLOUD_CLI_IMAGE_URL="gcr.io/google.com/cloudsdktool/google-cloud-cli"
    export GCLOUD_CLI_IMAGE_TAG="slim"
