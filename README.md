@@ -70,7 +70,16 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    export BUCKET_PATH_PREFIX="terraform/state"
    ```
 
-5. Enable required Apis (may take a couple minutes)
+5. Create a new Project and set it as active, then enable billing
+
+    ```bash
+    gcloud projects create $PROJECT_ID --name="$PROJECT_NAME"
+    gcloud config set project $PROJECT_ID
+    gcloud alpha billing projects link $PROJECT_ID --billing-account $BILLING_ACCOUNT
+
+    ```
+
+6. Enable required Apis (may take a couple minutes)
 
    ```bash
    gcloud services enable compute.googleapis.com
@@ -81,18 +90,9 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    gcloud services enable iam.googleapis.com
    gcloud services enable cloudbilling.googleapis.com
    gcloud services enable container.googleapis.com
-│  sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+   sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
    ```
-
-6. Create a new Project and set it as active, then enable billing
-
-    ```bash
-    gcloud projects create $PROJECT_ID --name="$PROJECT_NAME"
-    gcloud config set project $PROJECT_ID
-    gcloud alpha billing projects link $PROJECT_ID --billing-account $BILLING_ACCOUNT
-
-    ```
-
+   
 7. Create a group:
 
     ```bash
