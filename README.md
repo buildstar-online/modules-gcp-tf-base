@@ -178,11 +178,13 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 15. Init and apply terraform
 
     ```bash
-    docker run -it -v $(pwd):/terraform \
+    docker run --platform linux/amd64 -it \
+    -v $(pwd):/terraform \
     -w /terraform \
     hashicorp/terraform:latest init
 
-    docker run -it -v $(pwd):/terraform \
+    docker run -it --platform linux/amd64 -it \
+    -v $(pwd):/terraform \
     -w /terraform \
     hashicorp/terraform:latest apply
     ```
