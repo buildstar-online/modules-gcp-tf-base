@@ -8,17 +8,17 @@ variable "project_id" {
   type        = string
 }
 
-variable "terraform_robot_name" {
+variable "big_robot_name" {
   description = "Name of the top-level service account"
   type        = string
 }
 
-variable "terraform_robot_group" {
+variable "big_robot_group" {
   description = "group for top-level service accounts"
   type        = string
 }
 
-variable "terraform_robot_email" {
+variable "big_robot_email" {
   description = "email of the top-level service account"
   type        = string
 }
@@ -67,79 +67,4 @@ variable "backend_bucket_name" {
 variable "bucket_path_prefix" {
   description = "path to the terrafom state in the bucket"
   type        = string
-}
-
-variable "container_image" {
-  description = ""
-  type = string
-}
-
-variable "container_name" {
-  description = ""
-  type = string
-}
-
-
-variable "autoscaling_max_cpu" {
-  description = ""
-  type = number
-}
-
-
-variable "autoscaling_min_cpu" {
-  description = ""
-  type = number
-}
-
-
-variable "autoscaling_min_mem" {
-  description = ""
-  type = string
-}
-
-
-variable "autoscaling_max_mem" {
-  description = ""
-  type = string
-}
-
-
-variable "autoscaling_strategy" {
-  description = ""
-  type = string
-}
-
-
-variable "autoscaling_enabled" {
-  description = ""
-  type = string
-}
-
-variable "machine_type" {
-  description = ""
-  type = string
-}
-
-
-variable "disk_type" {
-  description = ""
-  type = string
-}
-
-
-variable "initial_node_count" {
-  description = ""
-  type = string
-}
-
-
-variable "use_default_node_pool" {
-  description = ""
-  type = string
-}
-
-
-variable "cluster_name" {
-  description = ""
-  type = string
 }

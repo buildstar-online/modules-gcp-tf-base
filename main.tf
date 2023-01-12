@@ -1,7 +1,7 @@
 # Creates a new project + basics in gcp
 module "gcp-tf-base" {
 
-  source = "./gcp-tf-base"
+  source = "git::https://github.com/cloudymax/modules-gcp-base.git?ref=v0.0.4"
 
   organization    = var.organization
   organization_id = var.organization_id
@@ -16,18 +16,19 @@ module "gcp-tf-base" {
   keyring     = var.keyring
   keyring_key = var.keyring_key
 
-  terraform_robot_group = var.terraform_robot_group
-  terraform_robot_name  = var.terraform_robot_name
-  terraform_robot_email = var.terraform_robot_email
+  big_robot_group = var.big_robot_group
+  big_robot_name  = var.big_robot_name
+  big_robot_email = var.big_robot_email
 
   # State bucket
   backend_bucket_name = var.backend_bucket_name
   bucket_path_prefix  = var.bucket_path_prefix
 }
 
+/*
 module "modules-gcp-gke" {
 
-  source = "./modules-gcp-gke"
+  source = "git::https://github.com/cloudymax/modules-gcp-gke.git?ref=v0.0.1"
 
   cluster_name            = var.cluster_name
   use_default_node_pool   = var.use_default_node_pool
@@ -53,5 +54,5 @@ module "modules-gcp-gke" {
   vpc_network_name        = module.gcp-tf-base.network_name
   vpc_network_subnet_name = module.gcp-tf-base.subnet_name
   replicas                = 1
-
 }
+*/
