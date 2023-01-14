@@ -8,17 +8,17 @@ variable "project_id" {
   type        = string
 }
 
-variable "terraform_robot_name" {
+variable "big_robot_name" {
   description = "Name of the top-level service account"
   type        = string
 }
 
-variable "terraform_robot_group" {
+variable "big_robot_group" {
   description = "group for top-level service accounts"
   type        = string
 }
 
-variable "terraform_robot_email" {
+variable "big_robot_email" {
   description = "email of the top-level service account"
   type        = string
 }

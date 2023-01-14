@@ -26,7 +26,7 @@ data "google_iam_policy" "keyEditor" {
     role = "roles/editor"
 
     members = [
-      "group:${var.terraform_robot_group}",
+      "group:${var.big_robot_group}",
     ]
   }
 }
@@ -41,4 +41,12 @@ resource "google_service_account_key" "mykey" {
 resource "google_kms_key_ring_iam_policy" "key_ring_policy" {
   key_ring_id = data.google_kms_key_ring.keyring.id
   policy_data = data.google_iam_policy.keyEditor.policy_data
+}
+
+output "service_account_key_id" {
+  value = google_service_account_key.mykey.id
+}
+
+output "google_kms_crypto_key_id" {
+  value = google_kms_crypto_key.key.id
 }

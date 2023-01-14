@@ -92,13 +92,12 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
    gcloud services enable container.googleapis.com
    sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
    ```
-   
+
 7. Create a group:
 
     ```bash
     gcloud identity groups create "admin-bot-group@$ORGANIZATION" --organization=$ORGANIZATION_ID --display-name="top-level-bot-group"
     ```
-
 
 8. Give the group some permissions:
 
@@ -107,7 +106,8 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
       --member=group:"admin-bot-group@$ORGANIZATION" \
       --role=roles/iam.serviceAccountUser \
       --role=roles/compute.instanceAdmin.v1 \
-      --role=roles/compute.osLogin
+      --role=roles/compute.osLogin \
+      --role=roles/cloudkms.cryptoKeyEncrypterDecrypter
 
     gcloud projects add-iam-policy-binding $PROJECT_ID \
       --member=group:"admin-bot-group@$ORGANIZATION" \
@@ -189,6 +189,9 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
     hashicorp/terraform:latest apply
     ```
 
+## GPU Quoata request
+
+- [How to request GPU quota increase in Google Cloud](https://stackoverflow.com/questions/45227064/how-to-request-gpu-quota-increase-in-google-cloud)
 
 ## Remote Source
 
