@@ -200,7 +200,7 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 # Creates a new project + basics in gcp
 module "gcp-tf-base" {
 
-  source  = "git::https://github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.3"
+  source  = "github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.5"
 
 }
 
