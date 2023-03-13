@@ -205,3 +205,46 @@ module "gcp-tf-base" {
 }
 
 ```
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_gcp-tf-base"></a> [gcp-tf-base](#module\_gcp-tf-base) | git::https://github.com/cloudymax/modules-gcp-base.git | v0.0.4 |
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_backend_bucket_name"></a> [backend\_bucket\_name](#input\_backend\_bucket\_name) | name of the bucket that will hold the terraform state | `string` | `"slim"` | no |
+| <a name="input_big_robot_email"></a> [big\_robot\_email](#input\_big\_robot\_email) | email of the top-level service account | `string` | n/a | yes |
+| <a name="input_big_robot_group"></a> [big\_robot\_group](#input\_big\_robot\_group) | group for top-level service accounts | `string` | n/a | yes |
+| <a name="input_big_robot_name"></a> [big\_robot\_name](#input\_big\_robot\_name) | Name of the top-level service account | `string` | n/a | yes |
+| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | the billing account you want all this to go under | `string` | n/a | yes |
+| <a name="input_bucket_path_prefix"></a> [bucket\_path\_prefix](#input\_bucket\_path\_prefix) | path to the terrafom state in the bucket | `string` | n/a | yes |
+| <a name="input_keyring"></a> [keyring](#input\_keyring) | Name for your keyring decryption key | `string` | n/a | yes |
+| <a name="input_keyring_key"></a> [keyring\_key](#input\_keyring\_key) | name for the key you will create in the keyring | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | geographic location/region | `string` | n/a | yes |
+| <a name="input_main_availability_zone"></a> [main\_availability\_zone](#input\_main\_availability\_zone) | availability zone within your region/location | `string` | n/a | yes |
+| <a name="input_organization"></a> [organization](#input\_organization) | your GCP organization name | `string` | n/a | yes |
+| <a name="input_organization_id"></a> [organization\_id](#input\_organization\_id) | gcloud projects describe <project> --format='value(parent.id)' | `string` | n/a | yes |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | machine readable project name | `string` | n/a | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The human-readbale project name string | `string` | n/a | yes |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
