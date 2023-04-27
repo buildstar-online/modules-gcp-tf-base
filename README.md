@@ -2,7 +2,7 @@
 
 ## Usage
 
-See it in action at https://github.com/cloudymax/azure-tf-starter
+See it in action at https://github.com/cloudymax/gcp-tf-starter
 
 ```hcl
 module "gcp-tf-base" {
