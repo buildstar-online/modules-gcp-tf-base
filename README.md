@@ -1,5 +1,12 @@
 # GCP TF Base module
 
+Requires an existing `project`, `service account` as demonstrated in [gcp-tf-starter](https://github.com/cloudymax/gcp-tf-starter)
+
+This module ddds the following to your existing project:
+- Storage Bucket
+- KMS key assigned to a Service Account
+- Top-Level Network and Subnet
+
 ## Usage
 
 See it in action at https://github.com/cloudymax/gcp-tf-starter
