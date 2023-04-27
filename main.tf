@@ -1,8 +1,5 @@
 # Creates a new project + basics in gcp
 module "gcp-tf-base" {
-
-  source = "git::https://github.com/cloudymax/modules-gcp-base.git?ref=v0.0.4"
-
   organization    = var.organization
   organization_id = var.organization_id
   billing_account = var.billing_account
