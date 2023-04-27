@@ -193,19 +193,6 @@ or use docker the docker container `gcr.io/google.com/cloudsdktool/google-cloud-
 
 - [How to request GPU quota increase in Google Cloud](https://stackoverflow.com/questions/45227064/how-to-request-gpu-quota-increase-in-google-cloud)
 
-## Remote Source
-
-```hcl
-
-# Creates a new project + basics in gcp
-module "gcp-tf-base" {
-
-  source  = "github.com/cloudymax/modules-gcp-tf-base.git?ref=v0.0.5"
-
-}
-
-```
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
