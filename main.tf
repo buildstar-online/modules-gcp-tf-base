@@ -24,35 +24,3 @@ module "gcp-tf-base" {
   backend_bucket_name = var.backend_bucket_name
   bucket_path_prefix  = var.bucket_path_prefix
 }
-
-/*
-module "modules-gcp-gke" {
-
-  source = "git::https://github.com/cloudymax/modules-gcp-gke.git?ref=v0.0.1"
-
-  cluster_name            = var.cluster_name
-  use_default_node_pool   = var.use_default_node_pool
-  initial_node_count      = var.initial_node_count
-  disk_type               = var.disk_type
-  machine_type            = var.machine_type
-  autoscaling_enabled     = var.autoscaling_enabled
-
-  autoscaling_max_mem     = var.autoscaling_max_mem
-  autoscaling_strategy    = var.autoscaling_strategy
-  autoscaling_min_mem     = var.autoscaling_min_mem
-  autoscaling_min_cpu     = var.autoscaling_min_cpu
-  autoscaling_max_cpu     = var.autoscaling_max_cpu
-  node_service_account    = var.terraform_robot_email
-
-  container_name          = var.container_name
-  container_image         = var.container_image
-  region                  = var.location
-  main_availability_zone = var.main_availability_zone
-  state_path              = var.backend_bucket_name
-  state_bucket_name       = var.bucket_path_prefix
-  project_id              = var.project_id
-  vpc_network_name        = module.gcp-tf-base.network_name
-  vpc_network_subnet_name = module.gcp-tf-base.subnet_name
-  replicas                = 1
-}
-*/
